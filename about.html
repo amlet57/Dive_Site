@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании DiveGear — производство экипировки для дайвинга</title>
+    <meta name="description" content="История бренда DiveGear. Собственное производство в Москве, контроль качества, материалы из Японии и США. Сертифицированные гидрокостюмы.">
+    <!-- дублируем meta keywords, og и т.д. (для краткости здесь опущены, но должны быть как в index) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- ШАПКА (навигация) идентична для всех страниц -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-dive sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <i class="bi bi-water"></i> DiveGear
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">О компании</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Услуги</a></li>
+                <li class="nav-item"><a class="nav-link" href="portfolio.html">Портфолио</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container py-5">
+    <!-- Хлебные крошки -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">О компании</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold mb-4">Сделано в России. Проверено океаном.</h1>
+            <p class="lead">DiveGear — первый отечественный бренд, получивший сертификат международной организации водолазов (IDSA) в 2015 году.</p>
+            <p>Наше производство находится в Москве, но заказы мы принимаем со всего мира. Мы не перешиваем китайские костюмы, а разрабатываем лекала сами. Каждый шов проклеивается вручную мастерами с 10-летним стажем.</p>
+            <div class="row mt-5">
+                <div class="col-6">
+                    <div class="border-start border-3 border-info ps-3">
+                        <div class="h2 fw-bold text-primary">15+</div>
+                        <span>лет на рынке</span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="border-start border-3 border-info ps-3">
+                        <div class="h2 fw-bold text-primary">8000+</div>
+                        <span>пошитых костюмов</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <img src="assets/images/about-factory.jpg" alt="Цех пошива гидрокостюмов DiveGear" class="img-fluid rounded-4 shadow-lg">
+            <!-- КОММЕНТАРИЙ: фото швейного цеха, мастера за работой с неопреном -->
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="row text-center">
+        <div class="col-md-4 mb-3">
+            <i class="bi bi-award fs-1" style="color: var(--dg-secondary);"></i>
+            <h3 class="h5 mt-2">100% контроль</h3>
+            <p>Каждый костюм тестируется в барокамере.</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <i class="bi bi-scissors fs-1" style="color: var(--dg-secondary);"></i>
+            <h3 class="h5 mt-2">Индивидуальный подход</h3>
+            <p>Внесение изменений в выкройку без доплат.</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <i class="bi bi-tree fs-1" style="color: var(--dg-secondary);"></i>
+            <h3 class="h5 mt-2">Эко-френдли</h3>
+            <p>Переработка обрезков неопрена в коврики.</p>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">...</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

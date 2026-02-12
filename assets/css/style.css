@@ -1,0 +1,153 @@
+/* Кастомные стили для DiveGear - Премиум спецодежда для дайвинга */
+
+:root {
+    --dg-primary: #0a3b5c;    /* Глубокий синий океана */
+    --dg-secondary: #00a8b5;  /* Бирюзовый акцент */
+    --dg-light: #e6f3f5;
+    --dg-dark: #02131c;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+/* Навбар */
+.navbar-dive {
+    background-color: var(--dg-dark) !important;
+    border-bottom: 3px solid var(--dg-secondary);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.navbar-dive .navbar-brand {
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: white;
+}
+.navbar-dive .nav-link {
+    color: rgba(255,255,255,0.9) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.2rem;
+    transition: color 0.2s, border-bottom 0.2s;
+    border-bottom: 2px solid transparent;
+}
+.navbar-dive .nav-link:hover,
+.navbar-dive .nav-link.active {
+    color: white !important;
+    border-bottom: 2px solid var(--dg-secondary);
+}
+
+/* Герой блок (Главная) */
+.hero-section {
+    background: linear-gradient(105deg, rgba(2,19,28,0.9) 0%, rgba(10,59,92,0.8) 100%);
+    background-size: cover;
+    background-blend-mode: overlay;
+    color: white;
+    padding: 80px 0;
+}
+
+/* Карточки услуг */
+.service-card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(0,168,181,0.1);
+}
+.service-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+/* Портфолио - галерея */
+.portfolio-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+    transition: all 0.25s;
+}
+.portfolio-item:hover {
+    box-shadow: 0 15px 30px rgba(10,59,92,0.15);
+}
+.portfolio-item img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
+.portfolio-item:hover img {
+    transform: scale(1.03);
+}
+.portfolio-caption {
+    background: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: 600;
+    border-top: 1px solid #eee;
+}
+
+/* Футер */
+.footer {
+    background-color: var(--dg-dark);
+    color: #adb5bd;
+    padding: 40px 0 20px;
+    margin-top: 60px;
+    border-top: 4px solid var(--dg-secondary);
+}
+.footer a {
+    color: #ced4da;
+    text-decoration: none;
+}
+.footer a:hover {
+    color: white;
+}
+
+/* Страница 404 */
+.error-404 {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+}
+.error-404 h1 {
+    font-size: 6rem;
+    color: var(--dg-primary);
+    text-shadow: 2px 2px 0 var(--dg-secondary);
+    font-weight: 800;
+}
+.btn-outline-dive {
+    border: 2px solid var(--dg-secondary);
+    color: var(--dg-secondary);
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+.btn-outline-dive:hover {
+    background-color: var(--dg-secondary);
+    color: white;
+}
+
+/* Хлебные крошки */
+.breadcrumb-custom {
+    background-color: #f8fbfc;
+    padding: 10px 0;
+    margin-bottom: 25px;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 50px 0;
+    }
+    h1 { font-size: 2rem; }
+}
