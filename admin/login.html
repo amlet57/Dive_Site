@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в админ-панель | DiveGear</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        :root {
+            --dg-primary: #0a3142;
+            --dg-secondary: #1f6e8a;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            font-family: 'Segoe UI', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .login-card {
+            background: white;
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 450px;
+            margin: 0 auto;
+        }
+        
+        .login-logo {
+            font-size: 3rem;
+            color: var(--dg-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .btn-login {
+            background: linear-gradient(145deg, var(--dg-secondary), var(--dg-primary));
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(31,110,138,0.3);
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            border-radius: 15px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .footer-links a {
+            color: var(--dg-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: #6c757d;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            color: var(--dg-secondary);
+        }
+        
+        .demo-credentials {
+            background: #e2f0f5;
+            border-radius: 15px;
+            padding: 1.2rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            border-left: 4px solid var(--dg-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="login-card">
+                    <div class="text-center">
+                        <div class="login-logo">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                        <h2 class="fw-bold mb-1">DiveGear Admin</h2>
+                        <p class="text-muted mb-4">Вход в систему управления заказами</p>
+                    </div>
+                    
+                    <div id="errorAlert" style="display: none;" class="error-message">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        <span id="errorText"></span>
+                    </div>
+                    
+                    <form id="loginForm" novalidate>
+                        <div class="mb-4">
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-0 rounded-start-pill px-4">
+                                    <i class="bi bi-person-fill"></i>
+                                </span>
+                                <input type="text" class="form-control rounded-end-pill" id="username" placeholder="Логин" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-0 rounded-start-pill px-4">
+                                    <i class="bi bi-key-fill"></i>
+                                </span>
+                                <input type="password" class="form-control rounded-end-pill" id="password" placeholder="Пароль" required>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn-login">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Войти
+                        </button>
+                    </form>
+                    
+                    <div class="footer-links">
+                        <a href="../index.html" class="back-link">
+                            <i class="bi bi-arrow-left me-1"></i>Вернуться на сайт
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Учетные данные администратора (в реальном проекте должны быть на сервере)
+        const ADMIN_CREDENTIALS = {
+            username: 'admin',
+            password: 'admin123'
+        };
+
+        // Обработка входа
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+                // Успешный вход
+                sessionStorage.setItem('admin_logged_in', 'true');
+                sessionStorage.setItem('admin_username', username);
+                sessionStorage.setItem('admin_login_time', new Date().toISOString());
+                
+                // Перенаправление в панель управления
+                window.location.href = 'dashboard.html';
+            } else {
+                // Ошибка входа
+                document.getElementById('errorText').textContent = 'Неверный логин или пароль';
+                document.getElementById('errorAlert').style.display = 'block';
+                
+                // Подсветка полей
+                document.getElementById('username').classList.add('is-invalid');
+                document.getElementById('password').classList.add('is-invalid');
+            }
+        });
+
+        // Сброс ошибок при вводе
+        document.getElementById('username').addEventListener('input', function() {
+            document.getElementById('errorAlert').style.display = 'none';
+            this.classList.remove('is-invalid');
+        });
+        
+        document.getElementById('password').addEventListener('input', function() {
+            document.getElementById('errorAlert').style.display = 'none';
+            this.classList.remove('is-invalid');
+        });
+    </script>
+</body>
+</html>
